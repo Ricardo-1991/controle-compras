@@ -57,7 +57,7 @@ export const Container = styled.form`
   input[type="checkbox"] {
     margin-left: 0.5rem;
     position: relative;
-    bottom: 0.1rem;
+    bottom: 0.2rem;
   }
 
   input[type="checkbox"]::before {
