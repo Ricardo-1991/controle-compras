@@ -41,7 +41,7 @@ export function NewProductModal({
         <img src={closeImg} alt="Botão de Fechar Modal" />
       </button>
       <Container onSubmit={handleCreateNewProduct}>
-        <h2>Adicione o produto</h2>
+        <h2>Adicionar novo produto</h2>
         <label htmlFor="">Nome do produto</label>
         <input type="text" placeholder="exemplo: macarrão..." />
         <label htmlFor="">Categoria</label>
