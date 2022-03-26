@@ -13,7 +13,7 @@ export function NewProductModal({
   isOpen,
   onRequestClose
 }: NewProductModalProps) {
-  const [amountProduct, setAmountProduct] = useState(0);
+  const [amountProduct, setAmountProduct] = useState(1);
 
   function handleProductIncrement() {
     setAmountProduct(amountProduct + 1);
@@ -21,8 +21,8 @@ export function NewProductModal({
 
   function handleProductDecrement() {
     setAmountProduct(amountProduct - 1);
-    if (amountProduct <= 0) {
-      setAmountProduct(0);
+    if (amountProduct <= 1) {
+      setAmountProduct(1);
     }
   }
 
@@ -37,17 +37,13 @@ export function NewProductModal({
       overlayClassName="react-modal-overlay"
       className="react-modal-content"
     >
-      <button onClick={onRequestClose}>
-        <img
-          src={closeImg}
-          className="react-modal-close"
-          alt="Botão de Fechar Modal"
-        />
+      <button onClick={onRequestClose} className="react-modal-close">
+        <img src={closeImg} alt="Botão de Fechar Modal" />
       </button>
       <Container onSubmit={handleCreateNewProduct}>
         <h2>Adicione o produto</h2>
         <label htmlFor="">Nome do produto</label>
-        <input type="text" />
+        <input type="text" placeholder="exemplo: macarrão..." />
         <label htmlFor="">Categoria</label>
         <select name="" id="">
           <option value="">Selecione uma opção</option>

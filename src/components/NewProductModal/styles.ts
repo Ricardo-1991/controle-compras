@@ -19,9 +19,14 @@ export const Container = styled.form`
     border: 1px solid #ddd;
     padding: 0.5rem 0;
     font-size: 1rem;
+
+    &::placeholder {
+      font-size: 0.9rem;
+    }
   }
 
   select {
+    width: 50%;
     border: 1px solid #ddd;
     padding: 0.5rem 0;
     margin-bottom: 1rem;
@@ -43,6 +48,10 @@ export const Container = styled.form`
 
   label input[type="checkbox"] {
     margin-top: 1rem;
+  }
+
+  input[type="text"] {
+    padding: 0.5rem;
   }
 
   input[type="checkbox"] {

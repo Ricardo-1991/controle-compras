@@ -60,6 +60,7 @@ export const GlobalStyle = createGlobalStyle`
   top: 1.5rem;
   border: none;
   background: transparent;
+
   transition: filter 0.2s;
 
   &:hover {
