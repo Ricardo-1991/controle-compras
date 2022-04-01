@@ -91,12 +91,12 @@ export const IconButton = styled.button`
 export const AddProductButton = styled.div`
   margin: 0 auto;
   button {
-    width: 100%;
+    width: 10rem;
     padding: 0.9rem;
     background-color: #20df9f;
     border-radius: 0.7rem;
     border: none;
-    color: white;
+    color: #fff;
     font-size: 1rem;
     margin-top: 1rem;
   }

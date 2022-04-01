@@ -51,7 +51,7 @@ export const GlobalStyle = createGlobalStyle`
   background: #fff;
   padding: 3rem;
   position: relative;
-  border-radius: 0.25rem;
+  border-radius: 1rem;
 }
 
 .react-modal-close{
