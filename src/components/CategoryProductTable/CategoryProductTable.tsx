@@ -4,21 +4,18 @@ interface ProductProps {
   productName: string;
   runningOutProduct: boolean;
   productAmount: number;
-  productCategory: string;
 }
 export function CategoryProductTable({
   productName,
   runningOutProduct,
-  productAmount,
-  productCategory
+  productAmount
 }: ProductProps) {
   return (
     <Tbody>
       <tr>
-        <th>{productName}</th>
-        <th>{productAmount}</th>
-        <th>{productCategory}</th>
-        <th>{runningOutProduct == false ? "Completo" : "Esgotado"}</th>
+        <td>{productName}</td>
+        <td>{productAmount}</td>
+        <td>{runningOutProduct == false ? "Completo" : "Esgotando"}</td>
       </tr>
     </Tbody>
   );

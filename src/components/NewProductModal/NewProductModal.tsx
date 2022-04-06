@@ -1,7 +1,8 @@
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useContext } from "react";
 import { MdAddCircleOutline, MdRemoveCircleOutline } from "react-icons/md";
 import Modal from "react-modal";
 import closeImg from "../../assets/close.svg";
+import { ProductContext } from "../ProductContext/ProductContext";
 import { Container, AddProductButton, IconButton } from "./styles";
 
 interface NewProductModalProps {
@@ -17,6 +18,8 @@ export function NewProductModal({
   const [productCategory, setProductCategory] = useState("");
   const [runningOutProduct, setRunningOutProduct] = useState(false);
   const [productAmount, setProductAmount] = useState(1);
+
+  const { setProductCategoryContext } = useContext(ProductContext);
 
   function handleProductIncrement(event: FormEvent) {
     event.preventDefault();
@@ -46,6 +49,8 @@ export function NewProductModal({
       runningOutProduct,
       productAmount
     };
+
+    setProductCategoryContext(productCategory);
 
     if (localStorage.getItem("product") === null) {
       localStorage.setItem("product", JSON.stringify([Product]));

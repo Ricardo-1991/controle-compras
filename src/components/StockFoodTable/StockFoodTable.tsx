@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ProductContext } from "../ProductContext/ProductContext";
 import { Container } from "./styles";
 import { CategoryProductTable } from "../CategoryProductTable/CategoryProductTable";
 
@@ -11,6 +12,8 @@ interface Product {
 
 export function StockFoodTable() {
   const [product, setProduct] = useState<Product[]>([]);
+
+  const { productCategoryContext } = useContext(ProductContext);
 
   const updatedLocalStorage = localStorage.getItem("product");
 
@@ -28,10 +31,13 @@ export function StockFoodTable() {
       <table>
         <thead>
           <tr>
+            <th></th>
+            <th>HIGIENE PESSOAL</th>
+          </tr>
+          <tr>
             <th>PRODUTO</th>
             <th>QUANTIDADE</th>
-            <th>CATEGORIA</th>
-            <th>STATUS ESTOQUE</th>
+            <th>ESTOQUE</th>
           </tr>
         </thead>
 
@@ -42,7 +48,6 @@ export function StockFoodTable() {
                 productName={product.productName}
                 runningOutProduct={product.runningOutProduct}
                 productAmount={product.productAmount}
-                productCategory={product.productCategory}
                 key={index}
               />
             )}
@@ -53,10 +58,13 @@ export function StockFoodTable() {
       <table>
         <thead>
           <tr>
+            <th></th>
+            <th>PRODUTOS DE LIMPEZA</th>
+          </tr>
+          <tr>
             <th>PRODUTO</th>
             <th>QUANTIDADE</th>
-            <th>CATEGORIA</th>
-            <th>STATUS ESTOQUE</th>
+            <th>ESTOQUE</th>
           </tr>
         </thead>
 
@@ -67,7 +75,6 @@ export function StockFoodTable() {
                 productName={product.productName}
                 runningOutProduct={product.runningOutProduct}
                 productAmount={product.productAmount}
-                productCategory={product.productCategory}
                 key={index}
               />
             )}
@@ -78,10 +85,13 @@ export function StockFoodTable() {
       <table>
         <thead>
           <tr>
+            <th></th>
+            <th>ALIMENTAÇÃO</th>
+          </tr>
+          <tr>
             <th>PRODUTO</th>
             <th>QUANTIDADE</th>
-            <th>CATEGORIA</th>
-            <th>STATUS ESTOQUE</th>
+            <th>ESTOQUE</th>
           </tr>
         </thead>
 
@@ -92,7 +102,6 @@ export function StockFoodTable() {
                 productName={product.productName}
                 runningOutProduct={product.runningOutProduct}
                 productAmount={product.productAmount}
-                productCategory={product.productCategory}
                 key={index}
               />
             )}
