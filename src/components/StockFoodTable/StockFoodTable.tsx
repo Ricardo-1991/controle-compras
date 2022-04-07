@@ -10,7 +10,8 @@ interface Product {
   productAmount: number;
 }
 
-export function StockFoodTable() {
+
+export function StockFoodTable( ) {
   const [product, setProduct] = useState<Product[]>([]);
 
   const { productCategoryContext } = useContext(ProductContext);
@@ -27,7 +28,10 @@ export function StockFoodTable() {
   }, [updatedLocalStorage]);
 
   return (
+  
     <Container>
+      {productCategoryContext == 'Higiene Pessoal' && 
+      
       <table>
         <thead>
           <tr>
@@ -40,7 +44,6 @@ export function StockFoodTable() {
             <th>ESTOQUE</th>
           </tr>
         </thead>
-
         {product.map((product, index) => (
           <>
             {product.productCategory == "Higiene Pessoal" && (
@@ -54,6 +57,7 @@ export function StockFoodTable() {
           </>
         ))}
       </table>
+      }
 
       <table>
         <thead>

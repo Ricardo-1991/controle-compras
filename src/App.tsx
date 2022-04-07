@@ -11,6 +11,8 @@ Modal.setAppElement("#root");
 function App() {
   const [isNewProductModalOpen, setIsNewProductModalOpen] = useState(false);
 
+  const nome = 'alexandre'
+
   function handleOpenNewProductModal() {
     setIsNewProductModalOpen(true);
   }
