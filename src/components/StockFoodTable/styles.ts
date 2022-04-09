@@ -10,9 +10,5 @@ export const Container = styled.main`
     border-spacing: 2rem;
     font-size: 1rem;
     border: 1px solid red;
-
-    thead th {
-      line-height: 1.9rem;
-    }
   }
 `;

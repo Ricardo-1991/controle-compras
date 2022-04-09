@@ -40,7 +40,6 @@ export function StockFoodTable() {
             <th>ESTOQUE</th>
           </tr>
         </thead>
-
         {product.map((product, index) => (
           <>
             {product.productCategory == "Higiene Pessoal" && (
@@ -67,7 +66,6 @@ export function StockFoodTable() {
             <th>ESTOQUE</th>
           </tr>
         </thead>
-
         {product.map((product, index) => (
           <>
             {product.productCategory == "Limpeza" && (
