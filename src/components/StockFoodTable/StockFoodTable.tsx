@@ -10,10 +10,8 @@ interface Product {
   productAmount: number;
 }
 
-
-export function StockFoodTable( ) {
+export function StockFoodTable() {
   const [product, setProduct] = useState<Product[]>([]);
-
   const { productCategoryContext } = useContext(ProductContext);
 
   const updatedLocalStorage = localStorage.getItem("product");
@@ -27,10 +25,13 @@ export function StockFoodTable( ) {
     }
   }, [updatedLocalStorage]);
 
+  const isShowHygieneTable = product.find(product => product.productCategory == 'Higiene Pessoal')
+  const isShowCleaningTable = product.find(product => product.productCategory == 'Limpeza')
+  const isShowFoodTable = product.find(product => product.productCategory == 'Alimentação')
+
   return (
-  
     <Container>
-      {productCategoryContext == 'Higiene Pessoal' && 
+      {isShowHygieneTable && 
       
       <table>
         <thead>
@@ -58,7 +59,9 @@ export function StockFoodTable( ) {
         ))}
       </table>
       }
-
+      
+      {isShowCleaningTable &&
+      
       <table>
         <thead>
           <tr>
@@ -85,7 +88,9 @@ export function StockFoodTable( ) {
           </>
         ))}
       </table>
+      }
 
+{isShowFoodTable &&
       <table>
         <thead>
           <tr>
@@ -112,6 +117,7 @@ export function StockFoodTable( ) {
           </>
         ))}
       </table>
+}
     </Container>
   );
 }
