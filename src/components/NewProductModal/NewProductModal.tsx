@@ -21,6 +21,7 @@ export function NewProductModal({
 
   const { setProductCategoryContext } = useContext(ProductContext);
 
+
   function handleProductIncrement(event: FormEvent) {
     event.preventDefault();
     setProductAmount(productAmount + 1);
