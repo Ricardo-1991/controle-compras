@@ -11,10 +11,9 @@ interface ProductTypes {
 
 export const ProductContext = createContext({} as ProductTypes);
 
-
 export function ProductContextProvider({ children }: ChildrenProps) {
   const [productCategoryContext, setProductCategoryContext] = useState("");
-  
+
   // function CreateDataForm(ProductInput: ProductInput) {
   //   setProductCategory(ProductInput.productCategory);
   // }

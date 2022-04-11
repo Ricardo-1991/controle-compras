@@ -1,4 +1,6 @@
 import { createGlobalStyle } from "styled-components";
+import img from "../assets/carrinho_compras.png";
+import "react-toastify/dist/ReactToastify.css";
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -10,6 +12,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   html {
+    scroll-behavior: smooth;
+    background: url(${img}) no-repeat center;
+    background-size: 53rem;
+    background-attachment: fixed; 
+    background-color: #f2f2f2;
+  
     @media (max-width: 1080px) {
       font-size: 93.75%; // 15px
     } 
@@ -18,7 +26,6 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 87.5%; // 14px
     } 
   } 
-
 
   body, input, textarea, button  {
     font-family: 'Poppins', sans-serif;
@@ -42,6 +49,7 @@ export const GlobalStyle = createGlobalStyle`
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .react-modal-content{
@@ -52,6 +60,7 @@ export const GlobalStyle = createGlobalStyle`
   padding: 3rem;
   position: relative;
   border-radius: 1rem;
+ 
 }
 
 .react-modal-close{

@@ -1,4 +1,5 @@
-import React, { useState, FormEvent, useContext } from "react";
+import { useState, FormEvent, useContext, useRef } from "react";
+import { toast } from "react-toastify";
 import { MdAddCircleOutline, MdRemoveCircleOutline } from "react-icons/md";
 import Modal from "react-modal";
 import closeImg from "../../assets/close.svg";
@@ -21,6 +22,8 @@ export function NewProductModal({
 
   const { setProductCategoryContext } = useContext(ProductContext);
 
+  const inputName = useRef<HTMLInputElement>(null);
+  const inputSelect = useRef<HTMLSelectElement>(null);
 
   function handleProductIncrement(event: FormEvent) {
     event.preventDefault();
@@ -53,6 +56,22 @@ export function NewProductModal({
 
     setProductCategoryContext(productCategory);
 
+    if (productName == "") {
+      toast.error("É necessário digitar o nome do produto");
+      if (null !== inputName.current) {
+        inputName.current.focus();
+      }
+      return;
+    }
+
+    if (productCategory == "") {
+      toast.error("Selecione pelo menos uma categoria");
+      if (null !== inputSelect.current) {
+        inputSelect.current.focus();
+      }
+      return;
+    }
+
     if (localStorage.getItem("product") === null) {
       localStorage.setItem("product", JSON.stringify([Product]));
     } else {
@@ -67,7 +86,7 @@ export function NewProductModal({
     setProductCategory("");
     setProductName("");
     setRunningOutProduct(false);
-    onRequestClose();
+    toast.success("Producto adicionado com sucesso!");
   }
 
   return (
@@ -88,13 +107,13 @@ export function NewProductModal({
           type="text"
           placeholder="exemplo: macarrão..."
           onChange={event => setProductName(event.target.value)}
+          ref={inputName}
         />
         <label htmlFor="">Categoria</label>
         <select
-          name=""
-          id=""
           value={productCategory}
           onChange={event => setProductCategory(event.target.value)}
+          ref={inputSelect}
         >
           <option value="">Selecione uma opção</option>
           <option value="Higiene Pessoal">Higiene Pessoal</option>

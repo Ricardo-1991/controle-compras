@@ -23,6 +23,10 @@ export const Container = styled.form`
     &::placeholder {
       font-size: 0.9rem;
     }
+
+    &:focus {
+      outline-color: #e57f4d;
+    }
   }
 
   select {
@@ -30,6 +34,10 @@ export const Container = styled.form`
     border: 1px solid #ddd;
     padding: 0.5rem 0;
     margin-bottom: 1rem;
+
+    &:focus {
+      outline-color: #e57f4d;
+    }
   }
 
   div input {
@@ -93,7 +101,7 @@ export const AddProductButton = styled.div`
   button {
     width: 10rem;
     padding: 0.9rem;
-    background-color: #20df9f;
+    background-color: #e57f4d;
     border-radius: 0.7rem;
     border: none;
     color: #fff;

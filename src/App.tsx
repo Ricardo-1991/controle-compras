@@ -1,17 +1,16 @@
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
 import { GlobalStyle } from "./styles/global";
 import { ProductContext } from "./components/ProductContext/ProductContext";
 import { ProductContextProvider } from "./components/ProductContext/ProductContext";
 import { Header } from "./components/Header/index";
-import { StockFoodTable } from "./components/StockFoodTable/StockFoodTable";
+import { Main } from "./components/Main";
 import { NewProductModal } from "./components/NewProductModal/NewProductModal";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
-function App() {
+export default function App() {
   const [isNewProductModalOpen, setIsNewProductModalOpen] = useState(false);
-
-  const nome = 'alexandre'
 
   function handleOpenNewProductModal() {
     setIsNewProductModalOpen(true);
@@ -24,14 +23,13 @@ function App() {
   return (
     <ProductContextProvider>
       <Header onOpenNewProductModal={handleOpenNewProductModal} />
-      <StockFoodTable />
+      <Main />
       <GlobalStyle />
       <NewProductModal
         isOpen={isNewProductModalOpen}
         onRequestClose={handleCloseNewProductModal}
       />
+      <ToastContainer autoClose={3000} />
     </ProductContextProvider>
   );
 }
-
-export default App;
