@@ -1,3 +1,4 @@
+import { useRef, SetStateAction } from "react";
 import { Table } from "./styles";
 import { GiSoap } from "react-icons/gi";
 
@@ -14,14 +15,34 @@ interface CatchFuncProps {
 
 interface ProductProps {
   product: Product[];
+  setProduct: React.Dispatch<SetStateAction<Product[]>>;
 }
 
 export function HygieneProductTable(
-  { product }: ProductProps,
+  { product, setProduct }: ProductProps,
   { catchRefs }: CatchFuncProps
 ) {
+  const tableHygieneRef = useRef<HTMLTableElement>(null);
+
+  function handleDeleteRow(id: number) {
+    const getLocalStorage = JSON.parse(localStorage.getItem("product") || "");
+    const productIndex = product.findIndex((product, index) => index == id);
+
+    if (productIndex >= 0) {
+      getLocalStorage.splice(productIndex, 1);
+      localStorage.setItem("product", JSON.stringify(getLocalStorage));
+      setProduct(getLocalStorage);
+    }
+  }
+
+  function handleTeste() {
+    if (null !== tableHygieneRef.current) {
+      tableHygieneRef.current.focus();
+    }
+  }
+
   return (
-    <Table>
+    <Table ref={tableHygieneRef}>
       <thead>
         <tr className="category-head">
           <th></th>
@@ -35,6 +56,7 @@ export function HygieneProductTable(
           <th>PRODUTO</th>
           <th>QUANTIDADE</th>
           <th>ESTOQUE</th>
+          <th>Excluir</th>
         </tr>
       </thead>
       <tbody>
@@ -47,9 +69,15 @@ export function HygieneProductTable(
                 <td>
                   {product.runningOutProduct == false ? "Completo" : "Esgotado"}
                 </td>
+                <td>
+                  <button onClick={() => handleDeleteRow(index)}>
+                    excluir
+                  </button>
+                </td>
               </tr>
             )
         )}
+        <button onClick={handleTeste}>HandleTeste</button>
       </tbody>
     </Table>
   );

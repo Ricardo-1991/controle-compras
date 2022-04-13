@@ -1,3 +1,5 @@
+import { SetStateAction } from "react";
+
 import { Table } from "./styles";
 import { MdCleanHands } from "react-icons/md";
 
@@ -10,9 +12,21 @@ interface Product {
 
 interface ProductProps {
   product: Product[];
+  setProduct: React.Dispatch<SetStateAction<Product[]>>;
 }
 
-export function CleaningProductTable({ product }: ProductProps) {
+export function CleaningProductTable({ product, setProduct }: ProductProps) {
+  function handleDeleteRow(id: number) {
+    const getLocalStorage = JSON.parse(localStorage.getItem("product") || "");
+    const productIndex = product.findIndex((product, index) => index == id);
+
+    if (productIndex >= 0) {
+      getLocalStorage.splice(productIndex, 1);
+      localStorage.setItem("product", JSON.stringify(getLocalStorage));
+      setProduct(getLocalStorage);
+    }
+  }
+
   return (
     <Table>
       <thead>
@@ -39,6 +53,11 @@ export function CleaningProductTable({ product }: ProductProps) {
                 <td>{product.productAmount}</td>
                 <td>
                   {product.runningOutProduct == false ? "Completo" : "Esgotado"}
+                </td>
+                <td>
+                  <button onClick={() => handleDeleteRow(index)}>
+                    excluir
+                  </button>
                 </td>
               </tr>
             )

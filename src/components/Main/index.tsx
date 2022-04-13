@@ -45,12 +45,20 @@ export function Main() {
     <Container>
       <NavBarCategory />
       {isShowHygieneTable && (
-        <HygieneProductTable product={product} catchRefs={CatchRefs} />
+        <HygieneProductTable
+          product={product}
+          setProduct={setProduct}
+          catchRefs={CatchRefs}
+        />
       )}
 
-      {isShowFoodTable && <FoodProductTable product={product} />}
+      {isShowFoodTable && (
+        <FoodProductTable product={product} setProduct={setProduct} />
+      )}
 
-      {isShowCleaningTable && <CleaningProductTable product={product} />}
+      {isShowCleaningTable && (
+        <CleaningProductTable product={product} setProduct={setProduct} />
+      )}
     </Container>
   );
 }

@@ -10,6 +10,9 @@ export function NavBarCategory() {
 
   return (
     <NavBar>
+      <div>
+        <h3>Navegação Categorias</h3>
+      </div>
       <HygieneButton onClick={handleScrollHygieneButton}>
         Higiene Pessoal
       </HygieneButton>
