@@ -35,11 +35,9 @@ export function HygieneProductTable(
     }
   }
 
-  function handleTeste() {
-    if (null !== tableHygieneRef.current) {
-      tableHygieneRef.current.focus();
-    }
-  }
+  // if (null !== tableHygieneRef.current) {
+  //   tableHygieneRef.current.focus();
+  // }
 
   return (
     <Table ref={tableHygieneRef}>
@@ -77,7 +75,6 @@ export function HygieneProductTable(
               </tr>
             )
         )}
-        <button onClick={handleTeste}>HandleTeste</button>
       </tbody>
     </Table>
   );

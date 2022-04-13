@@ -11,7 +11,7 @@ interface Product {
 
 interface ProductProps {
   product: Product[];
-  setProduct: React.Dispatch<SetStateAction<[]>>;
+  setProduct: React.Dispatch<SetStateAction<Product[]>>;
 }
 
 export function FoodProductTable({ product, setProduct }: ProductProps) {
