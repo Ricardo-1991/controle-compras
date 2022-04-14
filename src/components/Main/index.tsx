@@ -39,16 +39,16 @@ export function Main() {
     product => product.productCategory == "Alimentação"
   );
 
-  function CatchRefs() {}
+  // function CatchRefs() {}
 
   return (
     <Container>
-      <NavBarCategory />
+      {/* <NavBarCategory /> */}
       {isShowHygieneTable && (
         <HygieneProductTable
           product={product}
           setProduct={setProduct}
-          catchRefs={CatchRefs}
+          // catchRefs={CatchRefs}
         />
       )}
 

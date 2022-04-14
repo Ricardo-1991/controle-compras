@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
+  width: 100%;
   display: grid;
   place-items: center;
-  margin-top: 15rem;
+  margin-top: 16rem;
   /* grid-template-columns: repeat(2, 1fr); */
+  border: 1px solid red;
 
   table {
     width: 40rem;
@@ -27,5 +29,19 @@ export const Container = styled.main`
       text-align: center;
       padding: 1rem 2rem;
     }
+  }
+
+  @media (max-width: 1024px) {
+    width: 69rem;
+  }
+
+  @media (max-width: 720px) {
+    width: 65rem;
+    table {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 320px) {
   }
 `;

@@ -2,14 +2,13 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   width: 100%;
-  height: 13.5rem;
-  display: grid;
-  place-items: center;
+  margin: 0 auto;
+  text-align: center;
+  height: 13rem;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-
   backdrop-filter: blur(3px) saturate(58%);
   -webkit-backdrop-filter: blur(3px) saturate(58%);
   background-color: rgba(231, 239, 231, 0.66);
@@ -27,6 +26,7 @@ export const Container = styled.header`
     border: none;
     color: white;
     font-size: 1rem;
+    margin-top: 1rem;
     margin-left: 2rem;
   }
 `;

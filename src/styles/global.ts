@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     scroll-behavior: smooth;
     background: url(${img}) no-repeat center;
-    background-size: 53rem;
+    background-size: 42rem;
     background-attachment: fixed; 
     background-color: #f2f2f2;
   
@@ -28,7 +28,8 @@ export const GlobalStyle = createGlobalStyle`
   } 
 
   body, input, textarea, button  {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-family: 'PT Sans', sans-serif;
     font-weight: 400;
   }
 
@@ -76,5 +77,10 @@ export const GlobalStyle = createGlobalStyle`
     filter: brightness(0.8);
   }
 }
+
+.category-head {
+    position: relative;
+    left: 14rem;
+  }
 
 `;

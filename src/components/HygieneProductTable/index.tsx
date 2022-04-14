@@ -1,6 +1,7 @@
 import { useRef, SetStateAction } from "react";
 import { Table } from "./styles";
 import { GiSoap } from "react-icons/gi";
+import { AiOutlineDelete } from "react-icons/ai";
 
 interface Product {
   productName: string;
@@ -43,18 +44,16 @@ export function HygieneProductTable(
     <Table ref={tableHygieneRef}>
       <thead>
         <tr className="category-head">
-          <th></th>
           <th>
             HIGIENE PESSOAL <br />
             <GiSoap size={35} color="#4866AB" />{" "}
           </th>
-          <th></th>
         </tr>
         <tr>
           <th>PRODUTO</th>
           <th>QUANTIDADE</th>
           <th>ESTOQUE</th>
-          <th>Excluir</th>
+          <th>DELETAR</th>
         </tr>
       </thead>
       <tbody>
@@ -68,9 +67,10 @@ export function HygieneProductTable(
                   {product.runningOutProduct == false ? "Completo" : "Esgotado"}
                 </td>
                 <td>
-                  <button onClick={() => handleDeleteRow(index)}>
-                    excluir
-                  </button>
+                  <AiOutlineDelete
+                    onClick={() => handleDeleteRow(index)}
+                    size={25}
+                  />
                 </td>
               </tr>
             )

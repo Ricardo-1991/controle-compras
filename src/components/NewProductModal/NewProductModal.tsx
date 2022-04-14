@@ -19,7 +19,6 @@ export function NewProductModal({
   const [productCategory, setProductCategory] = useState("");
   const [runningOutProduct, setRunningOutProduct] = useState(false);
   const [productAmount, setProductAmount] = useState(1);
-  const [id, setId] = useState();
 
   const { setProductCategoryContext } = useContext(ProductContext);
 

@@ -1,7 +1,7 @@
 import { SetStateAction } from "react";
-
 import { Table } from "./styles";
 import { MdCleanHands } from "react-icons/md";
+import { AiOutlineDelete } from "react-icons/ai";
 
 interface Product {
   productName: string;
@@ -31,17 +31,16 @@ export function CleaningProductTable({ product, setProduct }: ProductProps) {
     <Table>
       <thead>
         <tr className="category-head">
-          <th></th>
           <th>
             PRODUTOS DE LIMPEZA <br />{" "}
             <MdCleanHands size={35} color="#43C74C" />
           </th>
-          <th></th>
         </tr>
         <tr>
           <th>PRODUTO</th>
           <th>QUANTIDADE</th>
           <th>ESTOQUE</th>
+          <th>DELETAR</th>
         </tr>
       </thead>
       <tbody>
@@ -55,9 +54,10 @@ export function CleaningProductTable({ product, setProduct }: ProductProps) {
                   {product.runningOutProduct == false ? "Completo" : "Esgotado"}
                 </td>
                 <td>
-                  <button onClick={() => handleDeleteRow(index)}>
-                    excluir
-                  </button>
+                  <AiOutlineDelete
+                    onClick={() => handleDeleteRow(index)}
+                    size={25}
+                  />
                 </td>
               </tr>
             )

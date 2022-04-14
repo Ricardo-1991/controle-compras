@@ -14,4 +14,10 @@ export const Table = styled.table`
     border: 1px solid #363f5f;
     font-weight: bold;
   }
+
+  td svg {
+    position: relative;
+    top: -0rem;
+    cursor: pointer;
+  }
 `;

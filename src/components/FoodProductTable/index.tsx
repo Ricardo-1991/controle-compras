@@ -1,6 +1,7 @@
 import { SetStateAction } from "react";
 import { Table } from "./styles";
 import { GiShinyApple } from "react-icons/gi";
+import { AiOutlineDelete } from "react-icons/ai";
 
 interface Product {
   productName: string;
@@ -29,17 +30,16 @@ export function FoodProductTable({ product, setProduct }: ProductProps) {
     <Table>
       <thead>
         <tr className="category-head">
-          <th></th>
           <th>
-            PRODUTOS ALIMENTÍCIOS
+            PRODUTOS ALIMENTÍCIOS <br />
             <GiShinyApple size={30} color="#FF3333" />
           </th>
-          <th></th>
         </tr>
         <tr>
           <th>PRODUTO</th>
           <th>QUANTIDADE</th>
           <th>ESTOQUE</th>
+          <th>DELETAR</th>
         </tr>
       </thead>
       <tbody>
@@ -53,9 +53,10 @@ export function FoodProductTable({ product, setProduct }: ProductProps) {
                   {product.runningOutProduct == false ? "Completo" : "Esgotado"}
                 </td>
                 <td>
-                  <button onClick={() => handleDeleteRow(index)}>
-                    excluir
-                  </button>
+                  <AiOutlineDelete
+                    onClick={() => handleDeleteRow(index)}
+                    size={25}
+                  />
                 </td>
               </tr>
             )
