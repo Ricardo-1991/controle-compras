@@ -34,14 +34,19 @@ export const Container = styled.main`
   @media (max-width: 1024px) {
     table {
       width: 34rem;
-      font-size: 0.8rem;
     }
   }
 
   @media (max-width: 845px) {
+    h3 {
+      font-size: 1rem;
+
+      svg {
+        top: 0.5rem;
+      }
+    }
     table {
-      width: 28rem;
-      font-size: 0.6rem;
+      font-size: 0.9rem;
     }
     svg {
       width: 1.5rem;

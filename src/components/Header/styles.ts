@@ -51,7 +51,7 @@ export const Container = styled.header`
 
   @media screen and (max-width: 738px) and (min-width: 300px) {
     img {
-      width: 9.8rem;
+      width: 7.8rem;
     }
   }
 `;

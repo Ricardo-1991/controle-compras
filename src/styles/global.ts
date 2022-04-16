@@ -89,10 +89,10 @@ export const GlobalStyle = createGlobalStyle`
 
   @media screen and (max-width: 738px) and (min-width: 300px) {
     .react-modal-content{
-        margin-top: 10rem;
-        margin-left: 2.2rem;
+        margin-top: 18rem;
+        margin-right: 2.2rem;
         width: 100%;
-        max-width: 35rem;
+        max-width: 30rem;
         background: #fff;
         padding: 3rem;
         position: relative;
