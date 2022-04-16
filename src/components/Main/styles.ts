@@ -4,7 +4,7 @@ export const Container = styled.main`
   width: 100%;
   display: grid;
   place-items: center;
-  margin-top: 10rem;
+  margin-top: 2rem;
   /* grid-template-columns: repeat(2, 1fr); */
   /* border: 1px solid red; */
 
@@ -17,15 +17,20 @@ export const Container = styled.main`
     background-color: rgba(250, 250, 250, 0.95);
     border-radius: 12px;
     border: 1px solid black;
+    border-collapse: collapse;
+
+    thead {
+      border: 1px solid red;
+    }
 
     th {
       font-weight: 600;
-      padding: 2rem;
+      padding: 1rem;
     }
 
     td {
       text-align: center;
-      padding: 1rem 2rem;
+      padding: 1rem;
     }
   }
 
@@ -52,6 +57,8 @@ export const Container = styled.main`
   }
 
   @media screen and (max-width: 720px) and (min-width: 300px) {
+    margin-top: 1rem;
+
     svg {
       width: 1.7rem;
     }

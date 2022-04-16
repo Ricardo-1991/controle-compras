@@ -6,10 +6,7 @@ export const Container = styled.header`
   justify-content: center;
   height: 11rem;
   place-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
+
   backdrop-filter: blur(3px) saturate(58%);
   -webkit-backdrop-filter: blur(3px) saturate(58%);
   background-color: rgba(231, 239, 231, 0.66);
@@ -54,5 +51,14 @@ export const Container = styled.header`
   }
 
   @media screen and (max-width: 738px) and (min-width: 300px) {
+    height: 8rem;
+
+    img {
+      width: 8rem;
+    }
+
+    button {
+      padding: 0.8rem;
+    }
   }
 `;

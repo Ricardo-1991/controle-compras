@@ -13,10 +13,10 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     scroll-behavior: smooth;
-    /* background: url(${img}) no-repeat center;
+    background: url(${img}) no-repeat center;
     background-size: 42rem;
     background-attachment: fixed; 
-    background-color: #f2f2f2; */
+    background-color: #f2f2f2;
   
     @media (max-width: 1080px) {
       font-size: 93.75%; // 15px
