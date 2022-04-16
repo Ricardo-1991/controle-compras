@@ -13,10 +13,10 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     scroll-behavior: smooth;
-    background: url(${img}) no-repeat center;
+    /* background: url(${img}) no-repeat center;
     background-size: 42rem;
     background-attachment: fixed; 
-    background-color: #f2f2f2;
+    background-color: #f2f2f2; */
   
     @media (max-width: 1080px) {
       font-size: 93.75%; // 15px
@@ -64,7 +64,6 @@ export const GlobalStyle = createGlobalStyle`
 
 .react-modal-content{
   margin-top: 8rem;
-
   margin-left: 2.2rem;
   width: 100%;
   max-width: 38rem;
@@ -93,13 +92,6 @@ export const GlobalStyle = createGlobalStyle`
     .react-modal-content{
         margin-top: 9rem;
         margin-right: 2.2rem;
-        width: 100%;
-        max-width: 30rem;
-        background: #fff;
-        padding: 3rem;
-        position: relative;
-        border-radius: 1rem;
- 
 }
   }
 

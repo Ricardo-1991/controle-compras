@@ -8,7 +8,7 @@ export const Container = styled.form`
 
   h2 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
 
   label {
@@ -30,7 +30,7 @@ export const Container = styled.form`
   }
 
   select {
-    width: 50%;
+    width: 100%;
     border: 1px solid #ddd;
     padding: 0.5rem 0;
     margin-bottom: 1rem;
@@ -87,6 +87,10 @@ export const Container = styled.form`
     transform: rotate(45deg);
     color: #994d00;
   }
+
+  @media screen and (max-width: 738px) and (min-width: 300px) {
+    font-size: 1rem;
+  }
 `;
 
 export const IconButton = styled.button`
@@ -107,5 +111,10 @@ export const AddProductButton = styled.div`
     color: #fff;
     font-size: 1rem;
     margin-top: 1rem;
+
+    @media screen and (max-width: 738px) and (min-width: 300px) {
+      font-size: 0.8rem;
+      padding: 0.7rem;
+    }
   }
 `;
