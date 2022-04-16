@@ -1,5 +1,5 @@
 import { Container } from "./styles";
-import logo from "../../assets/foodstock-novo.png";
+import logo from "../../assets/cart_logo.png";
 
 interface newProductModalProps {
   onOpenNewProductModal: () => void;
