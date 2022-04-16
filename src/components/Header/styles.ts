@@ -6,6 +6,10 @@ export const Container = styled.header`
   justify-content: center;
   align-items: center;
   height: 11rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
 
   backdrop-filter: blur(3px) saturate(58%);
   -webkit-backdrop-filter: blur(3px) saturate(58%);
@@ -50,7 +54,7 @@ export const Container = styled.header`
     }
   }
 
-  @media screen and (max-width: 738px) and (min-width: 300px) {
+  @media screen and (max-width: 738px) and (min-width: 350px) {
     height: 8rem;
 
     img {
@@ -59,6 +63,16 @@ export const Container = styled.header`
 
     button {
       padding: 0.8rem;
+    }
+  }
+
+  @media screen and (max-width: 350px) and (min-width: 250px) {
+    img {
+      width: 7rem;
+    }
+
+    button {
+      padding: 0.7rem;
     }
   }
 `;
