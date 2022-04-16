@@ -1,5 +1,5 @@
 import { Container } from "./styles";
-import logo from "../../assets/food.png";
+import logo from "../../assets/foodstock-logo.png";
 
 interface newProductModalProps {
   onOpenNewProductModal: () => void;
@@ -8,12 +8,8 @@ interface newProductModalProps {
 export function Header({ onOpenNewProductModal }: newProductModalProps) {
   return (
     <Container>
-      <div>
-        <img src={logo} alt="imagem do logo" />
-      </div>
-      <div>
-        <button onClick={onOpenNewProductModal}>Adicionar novo produto</button>
-      </div>
+      <img src={logo} alt="imagem do logo" />
+      <button onClick={onOpenNewProductModal}>Adicionar novo produto</button>
     </Container>
   );
 }

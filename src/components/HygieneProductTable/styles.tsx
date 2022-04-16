@@ -12,7 +12,6 @@ export const Table = styled.table`
 
   tr {
     border: 1px solid #363f5f;
-    font-weight: bold;
   }
 
   td svg {

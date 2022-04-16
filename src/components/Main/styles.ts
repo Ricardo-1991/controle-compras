@@ -6,7 +6,7 @@ export const Container = styled.main`
   place-items: center;
   margin-top: 16rem;
   /* grid-template-columns: repeat(2, 1fr); */
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   table {
     width: 40rem;
@@ -32,16 +32,40 @@ export const Container = styled.main`
   }
 
   @media (max-width: 1024px) {
-    width: 69rem;
-  }
-
-  @media (max-width: 720px) {
-    width: 65rem;
     table {
-      font-size: 1.1rem;
+      width: 34rem;
+      font-size: 0.8rem;
+    }
+
+    .category-head {
+      position: relative;
+      left: 12rem;
     }
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: 845px) {
+    table {
+      width: 28rem;
+      font-size: 0.6rem;
+    }
+    svg {
+      width: 1.5rem;
+    }
+
+    .category-head {
+      position: relative;
+      left: 10.5rem;
+    }
+  }
+
+  @media screen and (max-width: 738px) and (min-width: 300px) {
+    border: 1px solid red;
+
+    table {
+    }
+
+    svg {
+      width: 1.7rem;
+    }
   }
 `;

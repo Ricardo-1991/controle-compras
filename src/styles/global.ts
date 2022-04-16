@@ -22,7 +22,8 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 93.75%; // 15px
     } 
 
-    @media (max-width: 720px) {
+
+    @media (max-width: 738px) {
       font-size: 87.5%; // 14px
     } 
   } 
@@ -35,6 +36,14 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 600;
+  }
+
+  td {
+    color: #363f5f;
+
+    &:first-child {
+        color: var(--text-title);
+      }
   }
 
   button {
@@ -82,5 +91,9 @@ export const GlobalStyle = createGlobalStyle`
     position: relative;
     left: 14rem;
   }
+
+ 
+  
+
 
 `;

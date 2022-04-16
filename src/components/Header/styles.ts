@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  height: 13rem;
+  display: grid;
+  height: 15.5rem;
+  place-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -19,14 +19,42 @@ export const Container = styled.header`
     width: 13rem;
   }
 
-  div button {
+  button {
     padding: 0.9rem;
     background-color: #e57f4d;
     border-radius: 0.7rem;
     border: none;
     color: white;
     font-size: 1rem;
-    margin-top: 1rem;
-    margin-left: 2rem;
+    margin-top: -2rem;
+    margin-left: 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    height: 14rem;
+
+    img {
+      width: 10rem;
+    }
+
+    button {
+      font-size: 0.8rem;
+    }
+  }
+
+  @media (max-width: 845px) {
+    height: 13rem;
+
+    img {
+      width: 10rem;
+    }
+  }
+
+  @media (max-width: 700px) {
+    height: 13rem;
+
+    img {
+      width: 10rem;
+    }
   }
 `;
