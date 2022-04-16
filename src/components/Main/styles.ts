@@ -36,11 +36,6 @@ export const Container = styled.main`
       width: 34rem;
       font-size: 0.8rem;
     }
-    /* 
-    .category-head {
-      position: relative;
-      left: 12rem;
-    } */
   }
 
   @media (max-width: 845px) {
@@ -51,11 +46,6 @@ export const Container = styled.main`
     svg {
       width: 1.5rem;
     }
-
-    /* .category-head {
-      position: relative;
-      left: 10.5rem;
-    } */
   }
 
   @media screen and (max-width: 738px) and (min-width: 300px) {
@@ -65,5 +55,21 @@ export const Container = styled.main`
     svg {
       width: 1.7rem;
     }
+  }
+`;
+
+export const CategoryTitle = styled.div`
+  width: 20rem;
+  margin-top: 2rem;
+  text-align: center;
+  backdrop-filter: blur(3px) saturate(180%);
+  -webkit-backdrop-filter: blur(3px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.48);
+  border-radius: 12px;
+  border: 1px solid rgba(209, 213, 219, 0.3);
+
+  svg {
+    position: relative;
+    top: 0.2rem;
   }
 `;

@@ -1,5 +1,6 @@
 import { useRef, SetStateAction } from "react";
 import { Table } from "./styles";
+import { CategoryTitle } from "../Main/styles";
 import { GiSoap } from "react-icons/gi";
 import { AiOutlineDelete } from "react-icons/ai";
 
@@ -41,41 +42,45 @@ export function HygieneProductTable(
   // }
 
   return (
-    <Table ref={tableHygieneRef}>
-      <thead>
-        <tr className="category-head">
-          <th>
-            HIGIENE PESSOAL <br />
-            <GiSoap size={35} color="#4866AB" />{" "}
-          </th>
-        </tr>
-        <tr>
-          <th>PRODUTO</th>
-          <th>QUANTIDADE</th>
-          <th>ESTOQUE</th>
-          <th>DELETAR</th>
-        </tr>
-      </thead>
-      <tbody>
-        {product.map(
-          (product, index) =>
-            product.productCategory == "Higiene Pessoal" && (
-              <tr key={index}>
-                <td>{product.productName}</td>
-                <td>{product.productAmount}</td>
-                <td>
-                  {product.runningOutProduct == false ? "Completo" : "Esgotado"}
-                </td>
-                <td>
-                  <AiOutlineDelete
-                    onClick={() => handleDeleteRow(index)}
-                    size={25}
-                  />
-                </td>
-              </tr>
-            )
-        )}
-      </tbody>
-    </Table>
+    <>
+      <CategoryTitle>
+        <h3>
+          HIGIENE PESSOAL
+          <GiSoap size={35} color="#4866AB" />{" "}
+        </h3>
+      </CategoryTitle>
+      <Table ref={tableHygieneRef}>
+        <thead>
+          <tr>
+            <th>PRODUTO</th>
+            <th>QUANTIDADE</th>
+            <th>ESTOQUE</th>
+            <th>DELETAR</th>
+          </tr>
+        </thead>
+        <tbody>
+          {product.map(
+            (product, index) =>
+              product.productCategory == "Higiene Pessoal" && (
+                <tr key={index}>
+                  <td>{product.productName}</td>
+                  <td>{product.productAmount}</td>
+                  <td>
+                    {product.runningOutProduct == false
+                      ? "Completo"
+                      : "Esgotado"}
+                  </td>
+                  <td>
+                    <AiOutlineDelete
+                      onClick={() => handleDeleteRow(index)}
+                      size={25}
+                    />
+                  </td>
+                </tr>
+              )
+          )}
+        </tbody>
+      </Table>
+    </>
   );
 }

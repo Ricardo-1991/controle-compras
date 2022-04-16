@@ -87,11 +87,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 }
 
-/* .category-head {
-    position: relative;
-    left: 14rem;
-  } */
-
   @media screen and (max-width: 738px) and (min-width: 300px) {
     .react-modal-content{
         margin-top: 10rem;
