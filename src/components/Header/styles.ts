@@ -26,7 +26,6 @@ export const Container = styled.header`
     border: none;
     color: white;
     font-size: 1rem;
-    margin-left: 1rem;
   }
 
   @media (max-width: 1024px) {
