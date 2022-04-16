@@ -63,6 +63,8 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 .react-modal-content{
+  position: fixed;
+  z-index: 1;
   margin-top: 8rem;
   margin-left: 2.2rem;
   width: 100%;
