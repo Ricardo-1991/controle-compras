@@ -68,7 +68,7 @@ export function HygieneProductTable(
                   <td>
                     {product.runningOutProduct == false
                       ? "Completo"
-                      : "Esgotado"}
+                      : "Esgotando"}
                   </td>
                   <td>
                     <AiOutlineDelete

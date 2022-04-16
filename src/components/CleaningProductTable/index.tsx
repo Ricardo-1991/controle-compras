@@ -54,7 +54,7 @@ export function CleaningProductTable({ product, setProduct }: ProductProps) {
                   <td>
                     {product.runningOutProduct == false
                       ? "Completo"
-                      : "Esgotado"}
+                      : "Esgotando"}
                   </td>
                   <td>
                     <AiOutlineDelete
