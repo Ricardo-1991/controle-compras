@@ -8,8 +8,12 @@ interface newProductModalProps {
 export function Header({ onOpenNewProductModal }: newProductModalProps) {
   return (
     <Container>
-      <img src={logo} alt="imagem do logo" />
-      <button onClick={onOpenNewProductModal}>Adicionar novo produto</button>
+      <div>
+        <img src={logo} alt="imagem do logo" />
+      </div>
+      <div>
+        <button onClick={onOpenNewProductModal}>Adicionar novo produto</button>
+      </div>
     </Container>
   );
 }

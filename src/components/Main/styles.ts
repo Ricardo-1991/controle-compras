@@ -59,6 +59,10 @@ export const Container = styled.main`
   @media screen and (max-width: 720px) and (min-width: 300px) {
     margin-top: 1rem;
 
+    table {
+      width: 20rem;
+    }
+
     svg {
       width: 1.7rem;
     }
@@ -66,7 +70,7 @@ export const Container = styled.main`
 `;
 
 export const CategoryTitle = styled.div`
-  width: 20rem;
+  width: 100%;
   margin-top: 2rem;
   text-align: center;
   backdrop-filter: blur(3px) saturate(180%);

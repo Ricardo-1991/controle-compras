@@ -4,8 +4,8 @@ export const Container = styled.header`
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 11rem;
-  place-items: center;
 
   backdrop-filter: blur(3px) saturate(58%);
   -webkit-backdrop-filter: blur(3px) saturate(58%);
