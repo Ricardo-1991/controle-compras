@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   width: 100%;
-  display: grid;
-  height: 15.5rem;
+  display: flex;
+  justify-content: center;
+  height: 11rem;
   place-items: center;
   position: fixed;
   top: 0;
@@ -29,7 +30,7 @@ export const Container = styled.header`
   }
 
   @media (max-width: 1024px) {
-    height: 14rem;
+    height: 11rem;
 
     img {
       width: 10rem;
@@ -41,16 +42,17 @@ export const Container = styled.header`
   }
 
   @media (max-width: 845px) {
-    height: 13rem;
+    height: 10rem;
 
     img {
-      width: 10rem;
+      width: 9rem;
+    }
+
+    button {
+      font-size: 0.7rem;
     }
   }
 
   @media screen and (max-width: 738px) and (min-width: 300px) {
-    img {
-      width: 7.8rem;
-    }
   }
 `;
