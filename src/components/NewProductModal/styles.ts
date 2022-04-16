@@ -34,6 +34,7 @@ export const Container = styled.form`
     border: 1px solid #ddd;
     padding: 0.5rem 0;
     margin-bottom: 1rem;
+    background-color: #fff;
 
     &:focus {
       outline-color: #e57f4d;
