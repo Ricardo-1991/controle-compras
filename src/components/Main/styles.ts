@@ -59,8 +59,6 @@ export const Container = styled.main`
   }
 
   @media screen and (max-width: 738px) and (min-width: 300px) {
-    border: 1px solid red;
-
     table {
     }
 

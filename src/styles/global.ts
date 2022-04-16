@@ -92,8 +92,18 @@ export const GlobalStyle = createGlobalStyle`
     left: 14rem;
   }
 
+  @media screen and (max-width: 738px) and (min-width: 300px) {
+    .react-modal-content{
+        margin-top: 10rem;
+        margin-left: 2.2rem;
+        width: 100%;
+        max-width: 35rem;
+        background: #fff;
+        padding: 3rem;
+        position: relative;
+        border-radius: 1rem;
  
-  
-
+}
+  }
 
 `;

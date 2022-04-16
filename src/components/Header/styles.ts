@@ -16,7 +16,7 @@ export const Container = styled.header`
   border: 1px solid rgba(209, 213, 219, 0.3);
 
   img {
-    width: 13rem;
+    width: 11rem;
   }
 
   button {
@@ -26,7 +26,6 @@ export const Container = styled.header`
     border: none;
     color: white;
     font-size: 1rem;
-    margin-top: -2rem;
     margin-left: 1rem;
   }
 
@@ -50,11 +49,9 @@ export const Container = styled.header`
     }
   }
 
-  @media (max-width: 700px) {
-    height: 13rem;
-
+  @media screen and (max-width: 738px) and (min-width: 300px) {
     img {
-      width: 10rem;
+      width: 9.8rem;
     }
   }
 `;
