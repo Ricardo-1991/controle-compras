@@ -4,7 +4,7 @@ export const Container = styled.main`
   width: 100%;
   display: grid;
   place-items: center;
-  /* margin-top: 16rem; */
+  margin-top: 16rem;
   /* grid-template-columns: repeat(2, 1fr); */
   /* border: 1px solid red; */
 
@@ -36,11 +36,11 @@ export const Container = styled.main`
       width: 34rem;
       font-size: 0.8rem;
     }
-
+    /* 
     .category-head {
       position: relative;
       left: 12rem;
-    }
+    } */
   }
 
   @media (max-width: 845px) {
@@ -52,10 +52,10 @@ export const Container = styled.main`
       width: 1.5rem;
     }
 
-    .category-head {
+    /* .category-head {
       position: relative;
       left: 10.5rem;
-    }
+    } */
   }
 
   @media screen and (max-width: 738px) and (min-width: 300px) {
