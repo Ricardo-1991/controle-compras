@@ -4,7 +4,7 @@ export const Container = styled.main`
   width: 100%;
   display: grid;
   place-items: center;
-  margin-top: 16rem;
+  /* margin-top: 16rem; */
   /* grid-template-columns: repeat(2, 1fr); */
   /* border: 1px solid red; */
 

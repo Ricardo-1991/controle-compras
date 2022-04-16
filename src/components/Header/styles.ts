@@ -5,10 +5,10 @@ export const Container = styled.header`
   display: grid;
   height: 15.5rem;
   place-items: center;
-  position: fixed;
+  /* position: fixed;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 1; */
   backdrop-filter: blur(3px) saturate(58%);
   -webkit-backdrop-filter: blur(3px) saturate(58%);
   background-color: rgba(231, 239, 231, 0.66);
