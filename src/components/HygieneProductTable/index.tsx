@@ -53,8 +53,8 @@ export function HygieneProductTable(
         <thead>
           <tr>
             <th>PRODUTO</th>
-            <th>QUANTIDADE</th>
             <th>ESTOQUE</th>
+            <th>EMBALAGEM</th>
             <th>DELETAR</th>
           </tr>
         </thead>
@@ -67,7 +67,7 @@ export function HygieneProductTable(
                   <td>{product.productAmount}</td>
                   <td>
                     {product.runningOutProduct == false
-                      ? "Completo"
+                      ? "Completa"
                       : "Esgotando"}
                   </td>
                   <td>

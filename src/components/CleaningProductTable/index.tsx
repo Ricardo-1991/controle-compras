@@ -39,8 +39,8 @@ export function CleaningProductTable({ product, setProduct }: ProductProps) {
         <thead>
           <tr>
             <th>PRODUTO</th>
-            <th>QUANTIDADE</th>
             <th>ESTOQUE</th>
+            <th>EMBALAGEM</th>
             <th>DELETAR</th>
           </tr>
         </thead>
@@ -53,7 +53,7 @@ export function CleaningProductTable({ product, setProduct }: ProductProps) {
                   <td>{product.productAmount}</td>
                   <td>
                     {product.runningOutProduct == false
-                      ? "Completo"
+                      ? "Completa"
                       : "Esgotando"}
                   </td>
                   <td>

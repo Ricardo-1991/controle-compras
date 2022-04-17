@@ -39,8 +39,8 @@ export function FoodProductTable({ product, setProduct }: ProductProps) {
         <thead>
           <tr>
             <th>PRODUTO</th>
-            <th>QUANTIDADE</th>
             <th>ESTOQUE</th>
+            <th>EMBALAGEM</th>
             <th>DELETAR</th>
           </tr>
         </thead>
@@ -50,10 +50,10 @@ export function FoodProductTable({ product, setProduct }: ProductProps) {
               product.productCategory == "Alimentação" && (
                 <tr key={index}>
                   <td>{product.productName}</td>
-                  <td>{product.productAmount}</td>
+                  <td> {product.productAmount}</td>
                   <td>
                     {product.runningOutProduct == false
-                      ? "Completo"
+                      ? "Completa"
                       : "Esgotando"}
                   </td>
                   <td>
