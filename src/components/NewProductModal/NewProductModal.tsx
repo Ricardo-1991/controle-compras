@@ -83,10 +83,11 @@ export function NewProductModal({
       localStorage.getItem("product") || "" || "[]"
     );
 
-    const productNameExist = getProductName.findIndex(
+    const productNameExists = getProductName.find(
       (product: Product) => product.productName === productName
     );
-    if (productNameExist) {
+
+    if (productNameExists) {
       toast.error("Este produto já está cadastrado na tabela");
       return;
     }
