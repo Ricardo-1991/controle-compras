@@ -43,7 +43,6 @@ export function Main() {
 
   return (
     <Container>
-      {/* <NavBarCategory /> */}
       {isShowHygieneTable && (
         <HygieneProductTable
           product={product}

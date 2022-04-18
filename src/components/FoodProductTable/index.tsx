@@ -20,7 +20,7 @@ interface ProductProps {
 export function FoodProductTable({ product, setProduct }: ProductProps) {
   function handleDeleteRow(id: number) {
     const getLocalStorage = JSON.parse(localStorage.getItem("product") || "");
-    const productIndex = product.findIndex((product, index) => index == id);
+    const productIndex = product.findIndex((product, index) => index === id);
 
     if (productIndex >= 0) {
       getLocalStorage.splice(productIndex, 1);

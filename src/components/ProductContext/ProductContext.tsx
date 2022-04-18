@@ -20,7 +20,10 @@ export function ProductContextProvider({ children }: ChildrenProps) {
 
   return (
     <ProductContext.Provider
-      value={{ setProductCategoryContext, productCategoryContext }}
+      value={{
+        setProductCategoryContext,
+        productCategoryContext
+      }}
     >
       {children}
     </ProductContext.Provider>

@@ -11,6 +11,13 @@ interface NewProductModalProps {
   onRequestClose: () => void;
 }
 
+interface Product {
+  productName: string;
+  productCategory: string;
+  runningOutProduct: boolean;
+  productAmount: number;
+}
+
 export function NewProductModal({
   isOpen,
   onRequestClose
@@ -69,6 +76,18 @@ export function NewProductModal({
       if (null !== inputSelect.current) {
         inputSelect.current.focus();
       }
+      return;
+    }
+
+    const getProductName = JSON.parse(
+      localStorage.getItem("product") || "" || "[]"
+    );
+
+    const productNameExist = getProductName.findIndex(
+      (product: Product) => product.productName === productName
+    );
+    if (productNameExist) {
+      toast.error("Este produto já está cadastrado na tabela");
       return;
     }
 

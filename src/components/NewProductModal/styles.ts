@@ -91,6 +91,10 @@ export const Container = styled.form`
 
   @media screen and (max-width: 738px) and (min-width: 300px) {
     font-size: 1rem;
+
+    input[type="checkbox"] {
+      top: 0rem;
+    }
   }
 `;
 
