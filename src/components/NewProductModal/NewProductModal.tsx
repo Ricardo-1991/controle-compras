@@ -27,7 +27,8 @@ export function NewProductModal({
   const [runningOutProduct, setRunningOutProduct] = useState(false);
   const [productAmount, setProductAmount] = useState(1);
 
-  const { setProductCategoryContext } = useContext(ProductContext);
+  const { setProductCategoryContext, setProduct, product } =
+    useContext(ProductContext);
 
   const inputName = useRef<HTMLInputElement>(null);
   const inputSelect = useRef<HTMLSelectElement>(null);
@@ -63,6 +64,7 @@ export function NewProductModal({
 
     setProductCategoryContext(productCategory);
 
+    /* Exceções de nome do produto vazio e nome da categoria vazia */
     if (productName == "") {
       toast.error("É necessário digitar o nome do produto");
       if (null !== inputName.current) {
@@ -78,19 +80,20 @@ export function NewProductModal({
       }
       return;
     }
+    /* ----------- */
 
-    const getProductName = JSON.parse(
-      localStorage.getItem("product") || "" || "[]"
-    );
-
-    const productNameExists = getProductName.find(
+    /* Caso o usuário tente cadastrar um produto com o mesmo nome já cadastrado no Array*/
+    const updatedProduct = [...product];
+    const productNameExists = updatedProduct.find(
       (product: Product) => product.productName === productName
     );
-
     if (productNameExists) {
-      toast.error("Este produto já está cadastrado na tabela");
+      productNameExists.productAmount += productAmount;
+      setProduct(updatedProduct);
+      toast.success("Alterado o estoque do produto já cadastrado com sucesso");
       return;
     }
+    /* ----------- */
 
     if (localStorage.getItem("product") === null) {
       localStorage.setItem("product", JSON.stringify([Product]));
