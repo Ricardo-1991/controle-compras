@@ -2,7 +2,7 @@ import { SetStateAction } from "react";
 import { Table } from "./styles";
 import { CategoryTitle } from "../Main/styles";
 
-import { GiShinyApple } from "react-icons/gi";
+import { GiJellyBeans } from "react-icons/gi";
 import { AiOutlineDelete } from "react-icons/ai";
 
 interface Product {
@@ -17,7 +17,7 @@ interface ProductProps {
   setProduct: React.Dispatch<SetStateAction<Product[]>>;
 }
 
-export function FoodProductTable({ product, setProduct }: ProductProps) {
+export function NonPerishableFoodTable({ product, setProduct }: ProductProps) {
   function handleDeleteRow(id: number) {
     const getLocalStorage = JSON.parse(localStorage.getItem("product") || "");
     const productIndex = product.findIndex((product, index) => index === id);
@@ -32,7 +32,7 @@ export function FoodProductTable({ product, setProduct }: ProductProps) {
     <>
       <CategoryTitle>
         <h3>
-          PRODUTOS ALIMENTÍCIOS <GiShinyApple size={30} color="#FF3333" />
+          ALIMENTOS NÃO PERECÍVEIS <GiJellyBeans size={30} color="#4b3621" />
         </h3>
       </CategoryTitle>
       <Table>
@@ -47,7 +47,7 @@ export function FoodProductTable({ product, setProduct }: ProductProps) {
         <tbody>
           {product.map(
             (product, index) =>
-              product.productCategory == "Alimentação" && (
+              product.productCategory == "Alimentos não perecíveis" && (
                 <tr key={index}>
                   <td>{product.productName}</td>
                   <td> {product.productAmount}</td>

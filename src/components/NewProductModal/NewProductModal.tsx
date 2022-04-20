@@ -138,7 +138,11 @@ export function NewProductModal({
           <option value="">Selecione uma opção</option>
           <option value="Higiene Pessoal">Higiene Pessoal</option>
           <option value="Limpeza">Limpeza</option>
-          <option value="Alimentação">Alimentação</option>
+          <option value="Alimentos não perecíveis">
+            Alimentos não perecíveis
+          </option>
+          <option value="Frutas">Frutas</option>
+          <option value="Hortifruti">Hortifruti</option>
         </select>
         <div>
           <label htmlFor="">Quantidade: </label>

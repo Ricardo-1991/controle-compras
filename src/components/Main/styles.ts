@@ -88,15 +88,26 @@ export const Container = styled.main`
 export const CategoryTitle = styled.div`
   width: 100%;
   text-align: center;
-  backdrop-filter: blur(3px) saturate(180%);
-  -webkit-backdrop-filter: blur(3px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.48);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
   border-radius: 12px;
   border: 1px solid rgba(209, 213, 219, 0.3);
+
+  h3 {
+    color: #4d4d4d;
+  }
 
   svg {
     position: relative;
     top: 0.2rem;
+  }
+
+  @media screen and (max-width: 720px) and (min-width: 350px) {
+    h3 {
+      position: relative;
+      bottom: 0.5rem;
+    }
   }
 
   @media screen and (max-width: 350px) and (min-width: 250px) {
