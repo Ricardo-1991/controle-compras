@@ -20,5 +20,5 @@ AppWeb para controle de estoque de produtos de compras de supermercado. Constant
 
 
 ## 📁 Acesso ao projeto
- https://product-stock-ricardo.vercel.app/
+ https://controle-compras-ricardo.vercel.app/
 
