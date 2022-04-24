@@ -26,9 +26,9 @@ export function NewProductModal({
   const [productCategory, setProductCategory] = useState("");
   const [runningOutProduct, setRunningOutProduct] = useState(false);
   const [productAmount, setProductAmount] = useState(1);
+  const [product, setProduct] = useState<Product[]>([]);
 
-  const { setProductCategoryContext, setProduct, product } =
-    useContext(ProductContext);
+  // const { setProduct, product } = useContext(ProductContext);
 
   const inputName = useRef<HTMLInputElement>(null);
   const inputSelect = useRef<HTMLSelectElement>(null);
@@ -62,7 +62,7 @@ export function NewProductModal({
       productAmount
     };
 
-    setProductCategoryContext(productCategory);
+    setProduct([Product]);
 
     /* Exceções de nome do produto vazio e nome da categoria vazia */
     if (productName == "") {
@@ -82,6 +82,16 @@ export function NewProductModal({
     }
     /* ----------- */
 
+    if (localStorage.getItem("product") === null) {
+      localStorage.setItem("product", JSON.stringify([product]));
+    } else {
+      const getProducts = JSON.parse(localStorage.getItem("product") || "");
+      localStorage.setItem(
+        "product",
+        JSON.stringify([...getProducts, product])
+      );
+    }
+
     /* Caso o usuário tente cadastrar um produto com o mesmo nome já cadastrado no Array*/
     const updatedProduct = [...product];
     const productNameExists = updatedProduct.find(
@@ -95,16 +105,6 @@ export function NewProductModal({
       return;
     }
     /* ----------- */
-
-    if (localStorage.getItem("product") === null) {
-      localStorage.setItem("product", JSON.stringify([Product]));
-    } else {
-      const getProducts = JSON.parse(localStorage.getItem("product") || "");
-      localStorage.setItem(
-        "product",
-        JSON.stringify([...getProducts, Product])
-      );
-    }
 
     setProductAmount(1);
     setProductCategory("");

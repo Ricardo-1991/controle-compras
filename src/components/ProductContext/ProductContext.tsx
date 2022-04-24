@@ -35,7 +35,7 @@ export function ProductContextProvider({ children }: ChildrenProps) {
   const updatedLocalStorage = localStorage.getItem("product");
 
   useEffect(() => {
-    if (localStorage.getItem("product") == null) {
+    if (localStorage.getItem("product") === null) {
       return;
     } else {
       const newProduct = JSON.parse(localStorage.getItem("product") || "");

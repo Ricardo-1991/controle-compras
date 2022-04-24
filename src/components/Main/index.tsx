@@ -9,24 +9,25 @@ import { HortiFrutiTable } from "../HortiFrutiTable";
 import { FruitTable } from "../FruitTable";
 
 export function Main() {
-  const { productCategoryContext, product, setProduct } =
-    useContext(ProductContext);
+  const { product, setProduct } = useContext(ProductContext);
+
+  const updatedLocalStorage = localStorage.getItem("product");
 
   const isShowHygieneTable = product.find(
-    product => product.productCategory == "Higiene Pessoal"
+    product => product.productCategory === "Higiene Pessoal"
   );
   const isShowCleaningTable = product.find(
-    product => product.productCategory == "Limpeza"
+    product => product.productCategory === "Limpeza"
   );
   const isShowNonPerishableFoodTable = product.find(
-    product => product.productCategory == "Alimentos não perecíveis"
+    product => product.productCategory === "Alimentos não perecíveis"
   );
   const isShowFruitTable = product.find(
-    product => product.productCategory == "Frutas"
+    product => product.productCategory === "Frutas"
   );
 
   const isShowHortiFrutiTable = product.find(
-    product => product.productCategory == "Hortifruti"
+    product => product.productCategory === "Hortifruti"
   );
 
   // function CatchRefs() {}

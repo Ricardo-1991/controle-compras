@@ -19,13 +19,15 @@ interface ProductProps {
 
 export function NonPerishableFoodTable({ product, setProduct }: ProductProps) {
   function handleDeleteRow(id: number) {
-    const getLocalStorage = JSON.parse(localStorage.getItem("product") || "");
-    const productIndex = product.findIndex((product, index) => index === id);
+    const updatedProduct = [...product];
+    const productIndex = updatedProduct.findIndex(
+      (product, index) => index == id
+    );
 
     if (productIndex >= 0) {
-      getLocalStorage.splice(productIndex, 1);
-      localStorage.setItem("product", JSON.stringify(getLocalStorage));
-      setProduct(getLocalStorage);
+      updatedProduct.splice(productIndex, 1);
+      localStorage.setItem("product", JSON.stringify(updatedProduct));
+      setProduct(updatedProduct);
     }
   }
   return (
@@ -50,7 +52,7 @@ export function NonPerishableFoodTable({ product, setProduct }: ProductProps) {
               product.productCategory == "Alimentos não perecíveis" && (
                 <tr key={index}>
                   <td>{product.productName}</td>
-                  <td> {product.productAmount}</td>
+                  <td>{product.productAmount}</td>
                   <td>
                     {product.runningOutProduct == false
                       ? "Completa"
