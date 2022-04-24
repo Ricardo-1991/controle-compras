@@ -26,9 +26,7 @@ export function NewProductModal({
   const [productCategory, setProductCategory] = useState("");
   const [runningOutProduct, setRunningOutProduct] = useState(false);
   const [productAmount, setProductAmount] = useState(1);
-  const [product, setProduct] = useState<Product[]>([]);
-
-  // const { setProduct, product } = useContext(ProductContext);
+  const { setProduct, product } = useContext(ProductContext);
 
   const inputName = useRef<HTMLInputElement>(null);
   const inputSelect = useRef<HTMLSelectElement>(null);
@@ -62,8 +60,6 @@ export function NewProductModal({
       productAmount
     };
 
-    setProduct([Product]);
-
     /* Exceções de nome do produto vazio e nome da categoria vazia */
     if (productName == "") {
       toast.error("É necessário digitar o nome do produto");
@@ -83,13 +79,12 @@ export function NewProductModal({
     /* ----------- */
 
     if (localStorage.getItem("product") === null) {
-      localStorage.setItem("product", JSON.stringify([product]));
+      localStorage.setItem("product", JSON.stringify([Product]));
     } else {
       const getProducts = JSON.parse(localStorage.getItem("product") || "");
-      localStorage.setItem(
-        "product",
-        JSON.stringify([...getProducts, product])
-      );
+      const newProduct = [...getProducts, Product];
+      localStorage.setItem("product", JSON.stringify(newProduct));
+      setProduct(newProduct);
     }
 
     /* Caso o usuário tente cadastrar um produto com o mesmo nome já cadastrado no Array*/
