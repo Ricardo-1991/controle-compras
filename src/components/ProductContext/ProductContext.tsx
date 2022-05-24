@@ -19,8 +19,6 @@ interface ChildrenProps {
 }
 
 interface ProductTypes {
-  setProductCategoryContext: (arg: string) => void;
-  productCategoryContext: string;
   product: Product[];
   setProduct: Dispatch<SetStateAction<Product[]>>;
 }
@@ -28,8 +26,6 @@ interface ProductTypes {
 export const ProductContext = createContext({} as ProductTypes);
 
 export function ProductContextProvider({ children }: ChildrenProps) {
-  const [productCategoryContext, setProductCategoryContext] = useState("");
-
   const [product, setProduct] = useState<Product[]>([]);
 
   const updatedLocalStorage = localStorage.getItem("product");
@@ -46,8 +42,6 @@ export function ProductContextProvider({ children }: ChildrenProps) {
   return (
     <ProductContext.Provider
       value={{
-        setProductCategoryContext,
-        productCategoryContext,
         product,
         setProduct
       }}

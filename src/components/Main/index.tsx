@@ -11,8 +11,6 @@ import { FruitTable } from "../FruitTable";
 export function Main() {
   const { product, setProduct } = useContext(ProductContext);
 
-  const updatedLocalStorage = localStorage.getItem("product");
-
   const isShowHygieneTable = product.find(
     product => product.productCategory === "Higiene Pessoal"
   );

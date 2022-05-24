@@ -84,7 +84,6 @@ export function NewProductModal({
       const getProducts = JSON.parse(localStorage.getItem("product") || "");
       const newProduct = [...getProducts, Product];
       localStorage.setItem("product", JSON.stringify(newProduct));
-      setProduct(newProduct);
     }
 
     /* Caso o usuário tente cadastrar um produto com o mesmo nome já cadastrado no Array*/
@@ -94,12 +93,10 @@ export function NewProductModal({
     );
     if (productNameExists) {
       productNameExists.productAmount += productAmount;
-      setProduct(updatedProduct);
       localStorage.setItem("product", JSON.stringify(updatedProduct));
       toast.success("Alterado o estoque do produto já cadastrado com sucesso");
       return;
     }
-    /* ----------- */
 
     setProductAmount(1);
     setProductCategory("");
