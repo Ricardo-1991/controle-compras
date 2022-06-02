@@ -33,12 +33,12 @@ export function NewProductModal({
 
   function handleProductIncrement(event: FormEvent) {
     event.preventDefault();
-    setProductAmount(productAmount + 1);
+    setProductAmount(prevAmount => prevAmount + 1);
   }
 
   function handleProductDecrement(event: FormEvent) {
     event.preventDefault();
-    setProductAmount(productAmount - 1);
+    setProductAmount(prevAmount => prevAmount - 1);
     if (productAmount <= 1) {
       setProductAmount(1);
     }
@@ -94,8 +94,8 @@ export function NewProductModal({
     );
     if (productNameExists) {
       productNameExists.productAmount += productAmount;
-      setProduct(updatedProduct);
       localStorage.setItem("product", JSON.stringify(updatedProduct));
+      setProduct(updatedProduct);
       toast.success("Alterado o estoque do produto já cadastrado com sucesso");
       return;
     }
