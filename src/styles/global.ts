@@ -12,11 +12,6 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     scroll-behavior: smooth;
-    background: url(${img}) no-repeat center;
-    background-size: 42rem;
-    background-attachment: fixed; 
-    background-color: #f2f2f2;
-  
     @media (max-width: 1080px) {
       font-size: 93.75%; // 15px
     } 
@@ -31,6 +26,13 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Archivo Narrow', sans-serif;
     font-family: 'PT Sans', sans-serif;
     font-weight: 400;
+  }
+
+  body {
+    background: url(${img}) no-repeat center;
+    background-size: 42rem;
+    background-attachment: fixed; 
+    background-color: #f2f2f2;
   }
 
   h1, h2, h3, h4, h5, h6, strong {

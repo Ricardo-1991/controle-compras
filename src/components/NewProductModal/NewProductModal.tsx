@@ -11,34 +11,27 @@ interface NewProductModalProps {
   onRequestClose: () => void;
 }
 
-interface Product {
-  productName: string;
-  productCategory: string;
-  runningOutProduct: boolean;
-  productAmount: number;
-}
-
 export function NewProductModal({
   isOpen,
-  onRequestClose
+  onRequestClose,
 }: NewProductModalProps) {
   const [productName, setProductName] = useState("");
   const [productCategory, setProductCategory] = useState("");
   const [runningOutProduct, setRunningOutProduct] = useState(false);
   const [productAmount, setProductAmount] = useState(1);
-  const { setProduct, product } = useContext(ProductContext);
+  const { createLocalStorageData } = useContext(ProductContext);
 
   const inputName = useRef<HTMLInputElement>(null);
   const inputSelect = useRef<HTMLSelectElement>(null);
 
   function handleProductIncrement(event: FormEvent) {
     event.preventDefault();
-    setProductAmount(prevAmount => prevAmount + 1);
+    setProductAmount((prevAmount) => prevAmount + 1);
   }
 
   function handleProductDecrement(event: FormEvent) {
     event.preventDefault();
-    setProductAmount(prevAmount => prevAmount - 1);
+    setProductAmount(productAmount - 1);
     if (productAmount <= 1) {
       setProductAmount(1);
     }
@@ -52,14 +45,12 @@ export function NewProductModal({
 
   function handleCreateNewProduct(event: FormEvent) {
     event.preventDefault();
-
     const Product = {
       productName,
       productCategory,
       runningOutProduct,
-      productAmount
+      productAmount,
     };
-
     /* Exceções de nome do produto vazio e nome da categoria vazia */
     if (productName == "") {
       toast.error("É necessário digitar o nome do produto");
@@ -76,36 +67,12 @@ export function NewProductModal({
       }
       return;
     }
-    /* ----------- */
 
-    if (localStorage.getItem("product") === null) {
-      localStorage.setItem("product", JSON.stringify([Product]));
-    } else {
-      const getProducts = JSON.parse(localStorage.getItem("product") || "");
-      const newProduct = [...getProducts, Product];
-      localStorage.setItem("product", JSON.stringify(newProduct));
-      setProduct(newProduct);
-    }
-
-    /* Caso o usuário tente cadastrar um produto com o mesmo nome já cadastrado no Array*/
-    const updatedProduct = [...product];
-    const productNameExists = updatedProduct.find(
-      (product: Product) => product.productName === productName
-    );
-    if (productNameExists) {
-      productNameExists.productAmount += productAmount;
-      localStorage.setItem("product", JSON.stringify(updatedProduct));
-      setProduct(updatedProduct);
-      toast.success("Alterado o estoque do produto já cadastrado com sucesso");
-      return;
-    }
-    /* ----------- */
-    console.log(product);
+    createLocalStorageData(Product);
     setProductAmount(1);
     setProductCategory("");
     setProductName("");
     setRunningOutProduct(false);
-    toast.success("Producto adicionado com sucesso!");
   }
 
   return (
@@ -125,13 +92,13 @@ export function NewProductModal({
           value={productName}
           type="text"
           placeholder="exemplo: macarrão..."
-          onChange={event => setProductName(event.target.value)}
+          onChange={(event) => setProductName(event.target.value)}
           ref={inputName}
         />
         <label htmlFor="">Categoria</label>
         <select
           value={productCategory}
-          onChange={event => setProductCategory(event.target.value)}
+          onChange={(event) => setProductCategory(event.target.value)}
           ref={inputSelect}
         >
           <option value="">Selecione uma opção</option>
@@ -148,7 +115,7 @@ export function NewProductModal({
           <IconButton className="icon-button" onClick={handleProductDecrement}>
             <MdRemoveCircleOutline size={20} />
           </IconButton>
-          <input type="text" readOnly value={productAmount} />
+          <input type="text" readOnly min="1" value={productAmount} />
           <IconButton className="icon-button" onClick={handleProductIncrement}>
             <MdAddCircleOutline size={20} />
           </IconButton>

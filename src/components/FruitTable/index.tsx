@@ -1,33 +1,15 @@
-import { SetStateAction } from "react";
+import { useContext } from "react";
 import { Table } from "./styles";
 import { CategoryTitle } from "../Main/styles";
 import { GiShinyApple } from "react-icons/gi";
 import { AiOutlineDelete } from "react-icons/ai";
+import { ProductContext } from "../ProductContext/ProductContext";
 
-interface Product {
-  productName: string;
-  productCategory: string;
-  runningOutProduct: boolean;
-  productAmount: number;
-}
+export function FruitTable() {
+  const { removeProduct, product } = useContext(ProductContext);
 
-interface ProductProps {
-  product: Product[];
-  setProduct: React.Dispatch<SetStateAction<Product[]>>;
-}
-
-export function FruitTable({ product, setProduct }: ProductProps) {
   function handleDeleteRow(id: number) {
-    const updatedProduct = [...product];
-    const productIndex = updatedProduct.findIndex(
-      (product, index) => index == id
-    );
-
-    if (productIndex >= 0) {
-      updatedProduct.splice(productIndex, 1);
-      localStorage.setItem("product", JSON.stringify(updatedProduct));
-      setProduct(updatedProduct);
-    }
+    removeProduct(id);
   }
 
   return (

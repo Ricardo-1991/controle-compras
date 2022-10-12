@@ -1,47 +1,16 @@
-import { useRef, SetStateAction } from "react";
+import { useContext } from "react";
 import { Table } from "./styles";
 import { CategoryTitle } from "../Main/styles";
 import { GiSoap } from "react-icons/gi";
 import { AiOutlineDelete } from "react-icons/ai";
+import { ProductContext } from "../ProductContext/ProductContext";
 
-interface Product {
-  productName: string;
-  productCategory: string;
-  runningOutProduct: boolean;
-  productAmount: number;
-}
-
-interface CatchFuncProps {
-  catchRefs: () => void;
-}
-
-interface ProductProps {
-  product: Product[];
-  setProduct: React.Dispatch<SetStateAction<Product[]>>;
-}
-
-export function HygieneProductTable(
-  { product, setProduct }: ProductProps,
-  { catchRefs }: CatchFuncProps
-) {
-  const tableHygieneRef = useRef<HTMLTableElement>(null);
+export function HygieneProductTable() {
+  const { removeProduct, product } = useContext(ProductContext);
 
   function handleDeleteRow(id: number) {
-    const updatedProduct = [...product];
-    const productIndex = updatedProduct.findIndex(
-      (product, index) => index == id
-    );
-
-    if (productIndex >= 0) {
-      updatedProduct.splice(productIndex, 1);
-      localStorage.setItem("product", JSON.stringify(updatedProduct));
-      setProduct(updatedProduct);
-    }
+    removeProduct(id);
   }
-
-  // if (null !== tableHygieneRef.current) {
-  //   tableHygieneRef.current.focus();
-  // }
 
   return (
     <>
@@ -51,7 +20,7 @@ export function HygieneProductTable(
           <GiSoap size={35} color="#4866AB" />{" "}
         </h3>
       </CategoryTitle>
-      <Table ref={tableHygieneRef}>
+      <Table>
         <thead>
           <tr>
             <th>PRODUTO</th>

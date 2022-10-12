@@ -1,33 +1,14 @@
-import { SetStateAction } from "react";
 import { Table } from "./styles";
 import { CategoryTitle } from "../Main/styles";
 import { MdCleanHands } from "react-icons/md";
 import { AiOutlineDelete } from "react-icons/ai";
+import { ProductContext } from "../ProductContext/ProductContext";
+import { useContext } from "react";
 
-interface Product {
-  productName: string;
-  productCategory: string;
-  runningOutProduct: boolean;
-  productAmount: number;
-}
-
-interface ProductProps {
-  product: Product[];
-  setProduct: React.Dispatch<SetStateAction<Product[]>>;
-}
-
-export function CleaningProductTable({ product, setProduct }: ProductProps) {
+export function CleaningProductTable() {
+  const { removeProduct, product } = useContext(ProductContext);
   function handleDeleteRow(id: number) {
-    const updatedProduct = [...product];
-    const productIndex = updatedProduct.findIndex(
-      (product, index) => index == id
-    );
-
-    if (productIndex >= 0) {
-      updatedProduct.splice(productIndex, 1);
-      localStorage.setItem("product", JSON.stringify(updatedProduct));
-      setProduct(updatedProduct);
-    }
+    removeProduct(id);
   }
 
   return (

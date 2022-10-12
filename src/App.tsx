@@ -22,9 +22,9 @@ export default function App() {
 
   return (
     <ProductContextProvider>
+      <GlobalStyle />
       <Header onOpenNewProductModal={handleOpenNewProductModal} />
       <Main />
-      <GlobalStyle />
       <NewProductModal
         isOpen={isNewProductModalOpen}
         onRequestClose={handleCloseNewProductModal}
