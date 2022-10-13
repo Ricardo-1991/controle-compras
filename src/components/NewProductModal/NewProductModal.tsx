@@ -5,6 +5,7 @@ import Modal from "react-modal";
 import closeImg from "../../assets/close.svg";
 import { ProductContext } from "../ProductContext/ProductContext";
 import { Container, AddProductButton, IconButton } from "./styles";
+import { v4 as uuidv4 } from "uuid";
 
 interface NewProductModalProps {
   isOpen: boolean;
@@ -50,6 +51,7 @@ export function NewProductModal({
       productCategory,
       runningOutProduct,
       productAmount,
+      id: uuidv4(),
     };
     /* Exceções de nome do produto vazio e nome da categoria vazia */
     if (productName == "") {

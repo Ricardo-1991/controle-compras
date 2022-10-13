@@ -8,7 +8,7 @@ import { useContext } from "react";
 export function HortiFrutiTable() {
   const { removeProduct, product } = useContext(ProductContext);
 
-  function handleDeleteRow(id: number) {
+  function handleDeleteRow(id: string) {
     removeProduct(id);
   }
 
@@ -30,9 +30,9 @@ export function HortiFrutiTable() {
         </thead>
         <tbody>
           {product.map(
-            (product, index) =>
+            (product) =>
               product.productCategory == "Hortifruti" && (
-                <tr key={index}>
+                <tr key={product.id}>
                   <td>{product.productName}</td>
                   <td>{product.productAmount}</td>
                   <td>
@@ -42,7 +42,7 @@ export function HortiFrutiTable() {
                   </td>
                   <td>
                     <AiOutlineDelete
-                      onClick={() => handleDeleteRow(index)}
+                      onClick={() => handleDeleteRow(product.id)}
                       size={25}
                     />
                   </td>

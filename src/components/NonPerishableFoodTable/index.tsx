@@ -1,6 +1,5 @@
 import { Table } from "./styles";
 import { CategoryTitle } from "../Main/styles";
-
 import { GiJellyBeans } from "react-icons/gi";
 import { AiOutlineDelete } from "react-icons/ai";
 import { ProductContext } from "../ProductContext/ProductContext";
@@ -8,7 +7,7 @@ import { useContext } from "react";
 
 export function NonPerishableFoodTable() {
   const { removeProduct, product } = useContext(ProductContext);
-  function handleDeleteRow(id: number) {
+  function handleDeleteRow(id: string) {
     removeProduct(id);
   }
   return (
@@ -29,9 +28,9 @@ export function NonPerishableFoodTable() {
         </thead>
         <tbody>
           {product.map(
-            (product, index) =>
+            (product) =>
               product.productCategory == "Alimentos não perecíveis" && (
-                <tr key={index}>
+                <tr key={product.id}>
                   <td>{product.productName}</td>
                   <td>{product.productAmount}</td>
                   <td>
@@ -41,7 +40,7 @@ export function NonPerishableFoodTable() {
                   </td>
                   <td>
                     <AiOutlineDelete
-                      onClick={() => handleDeleteRow(index)}
+                      onClick={() => handleDeleteRow(product.id)}
                       size={25}
                     />
                   </td>

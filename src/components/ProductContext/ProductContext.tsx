@@ -6,6 +6,7 @@ interface Product {
   productCategory: string;
   runningOutProduct: boolean;
   productAmount: number;
+  id: string;
 }
 
 interface ChildrenProps {
@@ -15,13 +16,22 @@ interface ChildrenProps {
 interface ProductTypes {
   product: Product[];
   createLocalStorageData: (AllProducts: Product) => void;
-  removeProduct: (productId: number) => void;
+  removeProduct: (productId: string) => void;
 }
 
 export const ProductContext = createContext({} as ProductTypes);
 
 export function ProductContextProvider({ children }: ChildrenProps) {
   const [product, setProduct] = useState<Product[]>([]);
+
+  useEffect(() => {
+    if (localStorage.getItem("product") === null) {
+      return;
+    } else {
+      const newProduct = JSON.parse(localStorage.getItem("product") || "");
+      setProduct(newProduct);
+    }
+  }, []);
 
   function createLocalStorageData(AllProducts: Product) {
     setProduct((prevValues) => [...prevValues, AllProducts]);
@@ -49,23 +59,14 @@ export function ProductContextProvider({ children }: ChildrenProps) {
     }
   }
 
-  useEffect(() => {
-    if (localStorage.getItem("product") === null) {
-      return;
-    } else {
-      const newProduct = JSON.parse(localStorage.getItem("product") || "");
-      setProduct(newProduct);
-    }
-  }, []);
-
-  function removeProduct(productId: number) {
+  function removeProduct(productId: string) {
     const updatedProduct = [...product];
-    const productIndex = updatedProduct.findIndex(
-      (product, index) => index == productId
+    const productIndexExist = updatedProduct.findIndex(
+      (product) => product.id == productId
     );
 
-    if (productIndex >= 0) {
-      updatedProduct.splice(productIndex, 1);
+    if (productIndexExist >= 0) {
+      updatedProduct.splice(productIndexExist, 1);
       localStorage.setItem("product", JSON.stringify(updatedProduct));
       setProduct(updatedProduct);
     }
